@@ -96,13 +96,9 @@ private:
 
 int main(int argc, char** argv)
 {
-    argv[0] = (char*)malloc(7);
-    memcpy(argv[0], "Notify\0", 7);
     QApplication app(argc, argv);
 
     Handler handler;
 
-    int ret = app.exec();
-    free(argv[0]);
-    return ret;
+    return app.exec();
 }
