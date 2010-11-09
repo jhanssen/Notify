@@ -23,7 +23,7 @@ static bool appIsAtFront(const char* name)
     NSString* find = [NSString stringWithCString:name];
 
     NSDictionary* error = [[[NSDictionary alloc] init] autorelease];
-    NSAppleEventDescriptor* desc = [[check executeAndReturnError:&error] autorelease];
+    NSAppleEventDescriptor* desc = [check executeAndReturnError:&error];
 
     NSString* value = [desc stringValue];
     NSRange range = [value rangeOfString:find];
