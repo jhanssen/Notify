@@ -109,7 +109,7 @@ private slots:
             return;
 
         m_sockets.removeAll(socket);
-        delete socket;
+        socket->deleteLater();;
     }
 
 private:
