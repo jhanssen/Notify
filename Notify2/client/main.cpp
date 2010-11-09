@@ -117,7 +117,7 @@ private slots:
 
     void checkForActive()
     {
-        OSXunalert("screen-4");
+        OSXunalert("htpc-v2");
     }
 
     void socketDisconnected()
