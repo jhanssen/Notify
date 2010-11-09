@@ -1,12 +1,12 @@
 #include <QtGui>
 #include "alert.h"
 
-class Handler : public QWidget
+class Handler : public QObject
 {
     Q_OBJECT
 public:
-    Handler(QWidget* parent = 0)
-        : QWidget(parent), pos(0)
+    Handler(QObject* parent = 0)
+        : QObject(parent), pos(0)
     {
         QIcon icon(":/irssi.png");
         qApp->setWindowIcon(icon);
@@ -73,7 +73,6 @@ int main(int argc, char** argv)
     QApplication app(argc, argv);
 
     Handler handler;
-    //handler.show();
 
     int ret = app.exec();
     free(argv[0]);
