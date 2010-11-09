@@ -12,6 +12,8 @@ RESOURCES += client.qrc
 
 QT += network
 
+ICON = client.icns
+
 # Input
 HEADERS += alert.h
 SOURCES += main.cpp
