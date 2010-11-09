@@ -4,7 +4,7 @@
 #include <NSRange.h>
 #include <NSString.h>
 
-NSAppleScript* check = 0;
+static NSAppleScript* check = 0;
 
 static bool appIsAtFront(const char* name)
 {
