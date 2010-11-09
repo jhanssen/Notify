@@ -95,10 +95,21 @@ private slots:
     {
         QTcpSocket* socket = m_server.nextPendingConnection();
         if (readHandShake(socket)) {
+            connect(socket, SIGNAL(disconnected()), this, SLOT(removeSocket()));
             m_sockets << socket;
         } else {
             delete socket;
 	}
+    }
+
+    void removeSocket()
+    {
+        QTcpSocket* socket = qobject_cast<QTcpSocket*>(sender());
+        if (!socket)
+            return;
+
+        m_sockets.removeAll(socket);
+        delete socket;
     }
 
 private:

@@ -53,6 +53,7 @@ public:
             connect(m_socket, SIGNAL(readyRead()), this, SLOT(readMessage()));
         else
             qApp->quit();
+        connect(m_socket, SIGNAL(disconnected()), this, SLOT(socketDisconnected()));
 
         QTimer* timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this, SLOT(checkForActive()));
@@ -117,6 +118,12 @@ private slots:
     void checkForActive()
     {
         OSXunalert("screen-4");
+    }
+
+    void socketDisconnected()
+    {
+        QMessageBox::critical(0, "Connection terminated", "Connection to notification server terminated");
+        qApp->quit();
     }
 
 private:
